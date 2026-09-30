@@ -22,7 +22,12 @@
                         } else {
                             $username = "<Unknown>";
                         }
-                        echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars( $title ) . "</a> by <a href=\"/profile.php?id=" . $creator_id . "\">" . htmlspecialchars( $username ) . "</a><br>";
+
+                        if ( $username === "<Unknown>" ) {
+                            echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars( $title ) . "</a> by <span>" . htmlspecialchars( $username ) . "</span><br>";
+                        } else {
+                            echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars( $title ) . "</a> by <a href=\"/profile.php?id=" . $creator_id . "\">" . htmlspecialchars( $username ) . "</a><br>";
+                        }
 
                         $stmt2->close();
                     } else {
