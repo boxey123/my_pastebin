@@ -28,14 +28,28 @@
 
     include( "db_connection.php" );
 
-    if ( $stmt = $con->prepare( "SELECT `title`, `content`, `creator_id`, `password` FROM `pastes` WHERE `id` = ?" ) ) {
+    if ( $stmt = $con->prepare( "SELECT `title`, `content`, `creator_id`, `password`, `expires`, `expiration_date` FROM `pastes` WHERE `id` = ?" ) ) {
         $stmt->bind_param( "i", $id );
         $stmt->execute();
         $stmt->store_result();
 
         if ( $stmt->num_rows > 0 ) {
-            $stmt->bind_result( $title, $content, $creatorID, $hash );
+            $stmt->bind_result( $title, $content, $creatorID, $hash, $expires, $expiration_date );
             $stmt->fetch();
+
+            if ( $expires && strtotime( $expiration_date ) < time() ) {
+                if ( $stmt = $con->prepare( "DELETE FROM `pastes` WHERE `id` = ?" ) ) {
+                    $stmt->bind_param( "i", $id );
+                    $stmt->execute();
+                    $stmt->close();
+                } else {
+                    $con->close();
+                    exit( invalid( "Couldn't prepare statement" ) );
+                }
+
+                $con->close();
+                exit( invalid( "This paste has expired." ) );
+            }
 
             if ( password_verify( $password, $hash ) ) {
                 // get author name

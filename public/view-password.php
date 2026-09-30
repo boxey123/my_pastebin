@@ -17,13 +17,13 @@
 
     include( "db_connection.php" );
 
-    if ( $stmt = $con->prepare( "SELECT `haspassword` FROM `pastes` WHERE `id` = ?" ) ) {
+    if ( $stmt = $con->prepare( "SELECT `haspassword`, `expires`, `expiration_date` FROM `pastes` WHERE `id` = ?" ) ) {
         $stmt->bind_param( "i", $id );
         $stmt->execute();
         $stmt->store_result();
 
         if ( $stmt->num_rows > 0 ) {
-            $stmt->bind_result( $haspassword );
+            $stmt->bind_result( $haspassword, $expires, $expiration_date );
             $stmt->fetch();
 
             if ( !$haspassword ) {
@@ -31,6 +31,20 @@
                 $con->close();
                 header( "Location: view.php?id=" . $id );
                 exit();
+            }
+
+            if ( $expires && strtotime( $expiration_date ) < time() ) {
+                if ( $stmt = $con->prepare( "DELETE FROM `pastes` WHERE `id` = ?" ) ) {
+                    $stmt->bind_param( "i", $id );
+                    $stmt->execute();
+                    $stmt->close();
+                } else {
+                    $con->close();
+                    exit( "Couldn't prepare statement" );
+                }
+
+                $con->close();
+                exit( "This paste has expired." );
             }
 
         } else {

@@ -45,12 +45,6 @@
                 exit( "Couldn't prepare statement" );
             }
 
-            if ( $haspassword ) {
-                $con->close();
-                header( "Location: view-password.php?id=" . urlencode( $id ) );
-                exit();
-            }
-
             if ( $expires && strtotime( $expiration_date ) < time() ) {
                 if ( $stmt = $con->prepare( "DELETE FROM `pastes` WHERE `id` = ?" ) ) {
                     $stmt->bind_param( "i", $id );
@@ -63,6 +57,13 @@
 
                 $con->close();
                 exit( "This paste has expired." );
+            }
+
+
+            if ( $haspassword ) {
+                $con->close();
+                header( "Location: view-password.php?id=" . urlencode( $id ) );
+                exit();
             }
 
             $con->close();
