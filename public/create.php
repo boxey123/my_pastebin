@@ -148,13 +148,13 @@
         }
     ?>
     <div id="create-right"><a href="/index.php">Home</a></div>
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+    <form action="create.php" method="post">
         <label for="title">Title:</label>
-        <input name="title" type="text" required>
+        <input name="title" type="text" value="<?php echo isset( $_POST["title"] ) ? htmlspecialchars( $_POST["title"] ) : ""; ?>" required>
         <br>
         <label for="content">Content:</label>
         <br>
-        <textarea name="content" cols="50" rows="10" required></textarea>
+        <textarea name="content" cols="50" rows="10"  required><?php echo isset( $_POST["content"] ) ? htmlspecialchars( $_POST["content"] ) : ""; ?></textarea>
         <br>
         <label for="visibility">Visibility: </label>
         <select name="visibility" required>

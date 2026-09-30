@@ -82,12 +82,12 @@
             exit("You are already logged in! Go to the create page <a href=\"create.php\">here</a>");
         }
     ?>
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+    <form action="register.php" method="post">
         <label for="UserName">Username:</label>
-        <input type="text" name="UserName" maxlength="10" title="Username can only contain letters, numbers and underscores" value="<?php echo isset( $_POST["UserName"] ) ? $_POST["UserName"] : ""; ?>" required>
+        <input type="text" name="UserName" maxlength="10" title="Username can only contain letters, numbers and underscores" value="<?php echo isset( $_POST["UserName"] ) ? htmlspecialchars( $_POST["UserName"] ) : ""; ?>" required>
         <br>
         <label for="Password">Password:</label>
-        <input type="password" name="Password" minlength="8" maxlength="16" value="<?php echo isset( $_POST["Password"] ) ? $_POST["Password"] : ""; ?>" required>
+        <input type="password" name="Password" minlength="8" maxlength="16" required>
         <br>
         <?php if ( $_SERVER["REQUEST_METHOD"] == "POST" ) echo register();?>
         <p>Already have an account? <a href="/login.php">Login</a></p>
