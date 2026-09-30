@@ -33,7 +33,7 @@
         }
 
         // characters
-        if ( !preg_match( "/^[A-z0-9_]*$/", $username ) ) {
+        if ( !preg_match( "/^[A-Za-z0-9_]*$/", $username ) ) {
             return invalid( "Username contains invalid characters" );
         }
 
@@ -84,7 +84,7 @@
     ?>
     <form action="register.php" method="post">
         <label for="UserName">Username:</label>
-        <input type="text" name="UserName" maxlength="10" title="Username can only contain letters, numbers and underscores" value="<?php echo isset( $_POST["UserName"] ) ? htmlspecialchars( $_POST["UserName"] ) : ""; ?>" required>
+        <input type="text" name="UserName" maxlength="10" pattern="[A-Za-z0-9_]+" title="Username can only contain letters, numbers and underscores" value="<?php echo isset( $_POST["UserName"] ) ? htmlspecialchars( $_POST["UserName"] ) : ""; ?>" required>
         <br>
         <label for="Password">Password:</label>
         <input type="password" name="Password" minlength="8" maxlength="16" required>
