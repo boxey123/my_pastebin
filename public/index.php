@@ -20,9 +20,7 @@
                             $stmt2->bind_result( $username );
                             $stmt2->fetch();
                         } else {
-                            $stmt2->close();
-                            $con->close();
-                            exit( "Creator not found" );
+                            $username = "<Unknown>";
                         }
                         echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars( $title ) . "</a> by <a href=\"/profile.php?id=" . $creator_id . "\">" . htmlspecialchars( $username ) . "</a><br>";
 
