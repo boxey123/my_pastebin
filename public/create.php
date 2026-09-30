@@ -26,6 +26,10 @@
             return invalid( "Missing data" );
         }
 
+        if ( mb_strlen( $_POST["title"] ) > 30 ) {
+            return invalid( "Title is too long" );
+        }
+
         $creatorID = $_SESSION["userID"];
         $title = $_POST["title"];
         $content = $_POST["content"];
@@ -84,6 +88,10 @@
                     return invalid( "Invalid date" );
                 }
 
+                if ( $expirationDate <= strtotime( 'today' ) ) {
+                    return invalid( "Expiry date must be after today" );
+                }
+
                 $expirationDate = date( "Y-m-d", $expirationDate );
 
             } else {
@@ -108,6 +116,10 @@
 
                 if ( !$expirationDate ) {
                     return invalid( "Invalid date" );
+                }
+
+                if ( $expirationDate <= strtotime( 'today' ) ) {
+                    return invalid( "Expiry date must be after today" );
                 }
 
                 $expirationDate = date( "Y-m-d", $expirationDate );
@@ -150,7 +162,7 @@
     <div id="create-right"><a href="/index.php">Home</a></div>
     <form action="create.php" method="post">
         <label for="title">Title:</label>
-        <input name="title" type="text" value="<?php echo isset( $_POST["title"] ) ? htmlspecialchars( $_POST["title"] ) : ""; ?>" required>
+        <input name="title" type="text" maxlength="30" value="<?php echo isset( $_POST["title"] ) ? htmlspecialchars( $_POST["title"] ) : ""; ?>" required>
         <br>
         <label for="content">Content:</label>
         <br>
@@ -163,9 +175,9 @@
         </select>
         <br>
         <input name="expires" id="expires" type="checkbox">
-        <label for="expires">Expiration Date</label>
+        <label for="expires">Expires on</label>
         <br>
-        <input name="date" id="expiration" type="date" min="<?php echo date( 'Y-m-d' ); ?>">
+        <input name="date" id="expiration" type="date" min="<?php echo date( 'Y-m-d', strtotime( '+1 day' ) ); ?>">
         <br>
         <input name="haspassword" id="haspassword" type="checkbox">
         <label for="haspassword">Password</label>
