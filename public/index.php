@@ -4,7 +4,7 @@
     function display_pastes() {
         include( "db_connection.php" );
 
-        if ( $stmt = $con->prepare( "SELECT `id`, `title`, `creator_id` FROM `pastes` WHERE `visibility` = 'public' ORDER BY `id` DESC LIMIT 5" ) ) {
+        if ( $stmt = $con->prepare( "SELECT `id`, `title`, `creator_id` FROM `pastes` WHERE `visibility` = 'public' AND ( `expires` = 0 OR `expiration_date` > CURDATE() ) ORDER BY `id` DESC LIMIT 5" ) ) {
             $stmt->execute();
             $stmt->store_result();
             $stmt->bind_result( $id, $title, $creator_id );
