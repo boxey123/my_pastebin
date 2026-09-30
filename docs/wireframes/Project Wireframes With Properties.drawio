@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.6">
+  <diagram name="Page-1" id="YGjgxNlp4ETUoJDtiN3p">
+    <mxGraphModel dx="2575" dy="985" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Home | index.php | Not logged in" vertex="1">
+          <mxGeometry height="420" width="710" x="-250" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-2" parent="Ty-lPRQYCBnjNwuV4xGi-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=6;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;My pastebin&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="180" x="265" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-3" parent="Ty-lPRQYCBnjNwuV4xGi-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;Login&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="635" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-4" parent="Ty-lPRQYCBnjNwuV4xGi-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Recent Public Pastes&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="160" x="275" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-6" parent="Ty-lPRQYCBnjNwuV4xGi-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="TITLE by AUTHOR" vertex="1">
+          <mxGeometry height="30" width="160" x="275" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-7" parent="Ty-lPRQYCBnjNwuV4xGi-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="TITLE by AUTHOR" vertex="1">
+          <mxGeometry height="30" width="160" x="275" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-8" parent="Ty-lPRQYCBnjNwuV4xGi-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="TITLE by AUTHOR" vertex="1">
+          <mxGeometry height="30" width="160" x="275" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-9" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Home | index.php | Logged in" vertex="1">
+          <mxGeometry height="420" width="710" x="-250" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-10" parent="Ty-lPRQYCBnjNwuV4xGi-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=6;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;My pastebin&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="180" x="265" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-11" parent="Ty-lPRQYCBnjNwuV4xGi-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;Create&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="640" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-12" parent="Ty-lPRQYCBnjNwuV4xGi-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;Recent Public Pastes&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="160" x="275" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-13" parent="Ty-lPRQYCBnjNwuV4xGi-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="TITLE by AUTHOR" vertex="1">
+          <mxGeometry height="30" width="160" x="275" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-14" parent="Ty-lPRQYCBnjNwuV4xGi-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="TITLE by AUTHOR" vertex="1">
+          <mxGeometry height="30" width="160" x="275" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-15" parent="Ty-lPRQYCBnjNwuV4xGi-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="TITLE by AUTHOR" vertex="1">
+          <mxGeometry height="30" width="160" x="275" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-50" parent="Ty-lPRQYCBnjNwuV4xGi-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;Profile&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-16" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Login | login.php" vertex="1">
+          <mxGeometry height="420" width="710" x="670" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-24" parent="Ty-lPRQYCBnjNwuV4xGi-16" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Username:&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="60" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-32" parent="Ty-lPRQYCBnjNwuV4xGi-16" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Password:" vertex="1">
+          <mxGeometry height="30" width="60" x="10" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-33" parent="Ty-lPRQYCBnjNwuV4xGi-16" style="rounded=0;whiteSpace=wrap;html=1;" value="Text Input | maxlength = 10 | required&amp;nbsp;" vertex="1">
+          <mxGeometry height="20" width="240" x="80" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-34" parent="Ty-lPRQYCBnjNwuV4xGi-16" style="rounded=0;whiteSpace=wrap;html=1;" value="Password Input | minlength = 8 maxlength = 16 | required&amp;nbsp;" vertex="1">
+          <mxGeometry height="20" width="350" x="80" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-36" parent="Ty-lPRQYCBnjNwuV4xGi-16" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Don&#39;t have an account?&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="160" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-37" parent="Ty-lPRQYCBnjNwuV4xGi-16" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;Register&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="140" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-39" parent="Ty-lPRQYCBnjNwuV4xGi-16" style="whiteSpace=wrap;html=1;" value="Login" vertex="1">
+          <mxGeometry height="20" width="60" x="10" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-40" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Register | register.php" vertex="1">
+          <mxGeometry height="420" width="710" x="670" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-41" parent="Ty-lPRQYCBnjNwuV4xGi-40" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Username:&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="60" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-42" parent="Ty-lPRQYCBnjNwuV4xGi-40" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Password:" vertex="1">
+          <mxGeometry height="30" width="60" x="10" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-43" parent="Ty-lPRQYCBnjNwuV4xGi-40" style="rounded=0;whiteSpace=wrap;html=1;" value="Text Input | maxlength = 10 | required&amp;nbsp;" vertex="1">
+          <mxGeometry height="20" width="240" x="80" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-45" parent="Ty-lPRQYCBnjNwuV4xGi-40" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Already have an account?" vertex="1">
+          <mxGeometry height="30" width="160" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-46" parent="Ty-lPRQYCBnjNwuV4xGi-40" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;Login&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="140" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-47" parent="Ty-lPRQYCBnjNwuV4xGi-40" style="whiteSpace=wrap;html=1;" value="Register" vertex="1">
+          <mxGeometry height="20" width="70" x="10" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-48" parent="Ty-lPRQYCBnjNwuV4xGi-40" style="rounded=0;whiteSpace=wrap;html=1;" value="Password Input | minlength = 8 maxlength = 16 | required&amp;nbsp;" vertex="1">
+          <mxGeometry height="20" width="350" x="80" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-55" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="User Profile | profile.php | own profile" vertex="1">
+          <mxGeometry height="420" width="710" x="1580" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-63" parent="Ty-lPRQYCBnjNwuV4xGi-55" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;User: USERNAME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="10" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-64" parent="Ty-lPRQYCBnjNwuV4xGi-55" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;User&#39;s Creations:&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="160" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-66" parent="Ty-lPRQYCBnjNwuV4xGi-55" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;TITLE&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="20" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-70" parent="Ty-lPRQYCBnjNwuV4xGi-55" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;TITLE&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="20" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-71" parent="Ty-lPRQYCBnjNwuV4xGi-55" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;TITLE&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="20" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-72" parent="Ty-lPRQYCBnjNwuV4xGi-55" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;Logout&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="640" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-73" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="User Profile | profile.php&amp;nbsp;" vertex="1">
+          <mxGeometry height="420" width="710" x="1580" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-74" parent="Ty-lPRQYCBnjNwuV4xGi-73" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;User: USERNAME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="10" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-75" parent="Ty-lPRQYCBnjNwuV4xGi-73" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;User&#39;s Creations:&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="160" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-76" parent="Ty-lPRQYCBnjNwuV4xGi-73" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;TITLE&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="20" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-77" parent="Ty-lPRQYCBnjNwuV4xGi-73" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;TITLE&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="20" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Ty-lPRQYCBnjNwuV4xGi-78" parent="Ty-lPRQYCBnjNwuV4xGi-73" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;u&gt;TITLE&lt;/u&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="20" y="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

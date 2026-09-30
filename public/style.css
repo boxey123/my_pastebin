@@ -1,0 +1,104 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* index.php */
+#index-header { 
+    margin: 20px;
+}
+
+#index-title {
+    text-align: center;
+}
+
+#index-div {
+    margin-top: 10vh;
+    display: flex;
+}
+
+/* not in AH computing */
+#index-div > section {
+    flex: 1;
+    text-align: center;
+}
+
+#profile-link {
+    float: left;
+}
+
+#create-link {
+    float: right;
+}
+
+#login-link {
+    float: right;
+}
+
+/* create.php */
+/* not in AH computing */
+#haspassword:checked ~ #password {
+    display: block;
+}
+
+#haspassword:not(:checked) ~ #password {
+    display: none;
+}
+
+#expires:checked ~ #expiration {
+    display: block;
+}
+
+#expires:not(:checked) ~ #expiration {
+    display: none;
+}
+
+#create-right {
+    float: right;
+}
+
+/* view.php and view-password.php */
+#paste-title {
+    display: inline;
+}
+
+#paste-author {
+    display: inline;
+}
+
+#paste-content {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#paste-view-right {
+    float: right;
+}
+
+/* media query */
+@media print {
+    #paste-title, #paste-author {
+        display: block;
+        text-align: center;
+    }
+
+    #paste-view-right {
+        display: none;
+    }
+}
+
+/* #contentDiv {
+    background-color: red;
+} */
+
+#profile-username {
+    display: inline;
+}
+
+#profile-right { 
+    display: inline;
+    float: right;
+}
+
+#profile-right > a {
+    margin-right: 10px;
+}
