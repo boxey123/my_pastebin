@@ -24,7 +24,7 @@
                             $con->close();
                             exit( "Creator not found" );
                         }
-                        echo "<a href=\"/view.php?id=" . $id . "\">" . $title . "</a> by <a href=\"/profile.php?id=" . $creator_id . "\">" . $username . "</a><br>";
+                        echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars( $title ) . "</a> by <a href=\"/profile.php?id=" . $creator_id . "\">" . htmlspecialchars( $username ) . "</a><br>";
 
                         $stmt2->close();
                     } else {
