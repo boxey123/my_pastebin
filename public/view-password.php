@@ -73,8 +73,6 @@
                     });
                     const result = await response.json();
 
-                    console.table(result);
-
                     const contentDiv = document.getElementById("contentDiv");
                     const passwordDiv = document.getElementById("passwordDiv");
 
@@ -87,14 +85,16 @@
                         contentDiv.style.display = "block";
 
                         title.textContent = result.title;
-                        title.innerHTML = title.textContent;
-                        author.innerHTML = "By: <a href=\"/profile.php?id=" + result.author_id + "\">" + result.author + "</a>";
+                        author.textContent = "By: ";
+                        const authorLink = document.createElement("a");
+                        authorLink.href = "/profile.php?id=" + encodeURIComponent(result.author_id);
+                        authorLink.textContent = result.author;
+                        author.appendChild(authorLink);
                         content.textContent = result.content;
                     } else { 
                         passwordResult.style.color = "red";
                         passwordResult.textContent = "Invalid Password Submitted";
                     }
-
 
                 } else {
                     passwordResult.style.color = "red";
