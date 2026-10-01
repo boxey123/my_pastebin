@@ -2,7 +2,7 @@
     $db_host        = 'localhost';
     $db_username    = 'root';
     $db_password    = '';
-    $db_name        = 'project';
+    $db_name        = 'my_pastebin';
 
     return [ 
         "host" => $db_host, 

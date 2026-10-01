@@ -1,12 +1,12 @@
--- DROP DATABASE `project`;
--- DROP TABLE `project`.`users`;
--- DROP TABLE `project`.`pastes`;
+-- DROP DATABASE `my_pastebin`;
+-- DROP TABLE `my_pastebin`.`users`;
+-- DROP TABLE `my_pastebin`.`pastes`;
 
 -- Create main database
-CREATE DATABASE `project`;
+CREATE DATABASE `my_pastebin`;
 
 -- Create users table
-CREATE TABLE `project`.`users` (
+CREATE TABLE `my_pastebin`.`users` (
     `id` INT NOT NULL AUTO_INCREMENT , 
     `timestamp` TIMESTAMP NOT NULL , 
     `username` VARCHAR(10) NOT NULL , 
@@ -15,7 +15,7 @@ CREATE TABLE `project`.`users` (
 ) ENGINE = InnoDB;
 
 -- Create pastes table
-CREATE TABLE `project`.`pastes` (
+CREATE TABLE `my_pastebin`.`pastes` (
     `id` INT NOT NULL AUTO_INCREMENT , 
     `creator_id` INT NOT NULL , 
     `title` VARCHAR(30) NOT NULL , 
