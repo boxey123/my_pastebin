@@ -1,5 +1,6 @@
 <?php
     session_start();
+    header( "Content-Type: application/json" );
 
     function invalid( $content ) {
         return json_encode( array( "title" => "Failed", "content" => $content ) );
@@ -9,6 +10,11 @@
     function success( $title, $content, $author, $authorID ) {
         return json_encode( array( "title" => $title, "content" => $content, "author" => $author, "author_id" => $authorID ) );
         //echo( $content . ". Login <a href='login.php'>here</a>");
+    }
+
+    if ( $_SERVER["REQUEST_METHOD"] !== "POST" ) {
+        http_response_code( 405 );
+        exit( invalid( "Invalid request method" ) );
     }
 
     if ( !isset( $_POST["id"], $_POST["password"] ) ) {
