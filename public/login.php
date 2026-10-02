@@ -33,7 +33,7 @@
         }
 
         // characters
-        if ( !preg_match( "/^[A-Za-z0-9_]*$/", $username ) ) {
+        if ( !preg_match( "/^[A-Za-z0-9_]*\z/", $username ) ) {
             return invalid( "Username contains invalid characters" );
         }
 
