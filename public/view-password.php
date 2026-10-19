@@ -1,62 +1,71 @@
 <?php
-    session_start();
 
-    if ( !isset( $_GET["id"] ) ) {
-        exit( "No id provided" );
-    }
+session_start();
 
-    if ( empty( $_GET["id"] ) ) {
-        exit( "No id provided" );
-    }
+if (!isset($_GET["id"])) {
+    exit("No id provided");
+}
 
-    $id = (int) $_GET["id"];
+if (empty($_GET["id"])) {
+    exit("No id provided");
+}
 
-    if ( $id <= 0 ) {
-        exit( "Invalid id provided" );
-    }
+$id = (int) $_GET["id"];
 
-    include( "db_connection.php" );
+if ($id <= 0) {
+    exit("Invalid id provided");
+}
 
-    if ( $stmt = $con->prepare( "SELECT `haspassword`, `expires`, `expiration_date` FROM `pastes` WHERE `id` = ?" ) ) {
-        $stmt->bind_param( "i", $id );
-        $stmt->execute();
-        $stmt->store_result();
+include("db_connection.php");
 
-        if ( $stmt->num_rows > 0 ) {
-            $stmt->bind_result( $haspassword, $expires, $expiration_date );
-            $stmt->fetch();
+$sql = <<<'SQL'
+    SELECT `haspassword`, `expires`, `expiration_date` FROM `pastes`
+    WHERE `id` = ?;
+SQL;
 
-            if ( !$haspassword ) {
-                $stmt->close();
-                $con->close();
-                header( "Location: view.php?id=" . $id );
-                exit();
-            }
+if ($stmt = $con->prepare($sql)) {
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $stmt->store_result();
 
-            if ( $expires && strtotime( $expiration_date ) < time() ) {
-                if ( $stmt = $con->prepare( "DELETE FROM `pastes` WHERE `id` = ?" ) ) {
-                    $stmt->bind_param( "i", $id );
-                    $stmt->execute();
-                    $stmt->close();
-                } else {
-                    $con->close();
-                    exit( "Couldn't prepare statement" );
-                }
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($haspassword, $expires, $expiration_date);
+        $stmt->fetch();
 
-                $con->close();
-                exit( "This paste has expired." );
-            }
-
-        } else {
+        if (!$haspassword) {
             $stmt->close();
             $con->close();
-            exit( "Paste not found" );
-         }
+            header("Location: view.php?id=" . $id);
+            exit();
+        }
 
+        if ($expires && strtotime($expiration_date) < time()) {
+            $sql = <<<'SQL'
+                DELETE FROM `pastes`
+                WHERE `id` = ?;
+            SQL;
+
+            if ($stmt = $con->prepare($sql)) {
+                $stmt->bind_param("i", $id);
+                $stmt->execute();
+                $stmt->close();
+            } else {
+                $con->close();
+                exit("Couldn't prepare statement");
+            }
+
+            $con->close();
+            exit("This paste has expired.");
+        }
     } else {
+        $stmt->close();
         $con->close();
-        exit( "Couldn't prepare statement" );
+        exit("Paste not found");
     }
+} else {
+    $con->close();
+    exit("Couldn't prepare statement");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
