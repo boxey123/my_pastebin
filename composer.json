@@ -13,5 +13,9 @@
             "email": "105134794+boxey123@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^4.0",
+        "phpstan/phpstan": "^2.3",
+        "phpunit/phpunit": "^13.4"
+    }
 }
