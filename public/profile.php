@@ -81,12 +81,10 @@ $con->close();
                     $stmt->execute();
 
                     $result = $stmt->get_result();
-                    $row = $result->fetch_assoc();
+                    while ($row = $result->fetch_assoc()) {
+                        $id = $row['id'];
+                        $title = $row['title'];
 
-                    $id = $row['id'];
-                    $title = $row['title'];
-
-                    while ($stmt->fetch()) {
                         echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars($title) . "</a><br>";
                     }
                 } else {
@@ -104,12 +102,10 @@ $con->close();
                     $stmt->execute();
 
                     $result = $stmt->get_result();
-                    $row = $result->fetch_assoc();
+                    while ($row = $result->fetch_assoc()) {
+                        $id = $row['id'];
+                        $title = $row['title'];
 
-                    $id = $row['id'];
-                    $title = $row['title'];
-
-                    while ($stmt->fetch()) {
                         echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars($title) . "</a><br>";
                     }
                 } else {
