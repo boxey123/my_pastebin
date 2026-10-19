@@ -95,7 +95,6 @@ $con->close();
                         echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars($title) . "</a><br>";
                     }
                 } else {
-                    $stmt->close();
                     $con->close();
                     exit("Couldn't prepare statement");
                 }
@@ -119,7 +118,6 @@ $con->close();
                         echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars($title) . "</a><br>";
                     }
                 } else {
-                    $stmt->close();
                     $con->close();
                     exit("Couldn't prepare statement");
                 }
