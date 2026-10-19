@@ -83,10 +83,9 @@ if ($stmt = $con->prepare($sql)) {
             exit("This paste has expired.");
         }
 
-
         if ($haspassword) {
             $con->close();
-            header("Location: view-password.php?id=" . urlencode($id));
+            header("Location: view-password.php?id=" . $id);
             exit();
         }
 
