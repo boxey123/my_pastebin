@@ -38,11 +38,11 @@ function create(): string
 
     $sql = <<<'SQL'
         SELECT `id` FROM `pastes`
-        WHERE `creator_id` = ? AND `visibility` = 'public';
+        WHERE `creator_id` = ? AND `title` = ? AND `visibility` = 'public';
     SQL;
 
     if ($stmt = $con->prepare($sql)) {
-        $stmt->bind_param("i", $creatorID);
+        $stmt->bind_param("is", $creatorID, $title);
         $stmt->execute();
         $stmt->store_result();
 
