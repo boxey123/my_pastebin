@@ -40,7 +40,7 @@ function login()
         return invalid("Username contains invalid characters");
     }
 
-    include("db_connection.php");
+    $con = require("db_connection.php");
 
     $sql = <<<'SQL'
         SELECT `id`, `password` FROM `users`
@@ -50,11 +50,14 @@ function login()
     if ($stmt = $con->prepare($sql)) {
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        $stmt->store_result();
 
-        if ($stmt->num_rows > 0) {
-            $stmt->bind_result($id, $hash);
-            $stmt->fetch();
+
+        $result = $stmt->get_result();
+
+        if ($result > 0) {
+            $row = $result->fetch_assoc();
+            $id = $row['id'];
+            $hash = $row['password'];
 
             if (password_verify($password, $hash)) {
                 session_regenerate_id();

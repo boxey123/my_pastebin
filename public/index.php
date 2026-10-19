@@ -3,7 +3,7 @@ session_start();
 
 function display_pastes()
 {
-    include("db_connection.php");
+    $con = require("db_connection.php");
 
     $sql = <<<'SQL'
         SELECT `id`, `title`, `creator_id` FROM `pastes`
@@ -14,23 +14,29 @@ function display_pastes()
     if ($stmt = $con->prepare($sql)) {
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($id, $title, $creator_id);
 
-        if ($stmt->num_rows > 0) {
-            $sql = <<<'SQL'
-                SELECT `username` FROM `users`
-                WHERE `id` = ?;
-            SQL;
+        $result = $stmt->get_result();
 
-            while ($stmt->fetch()) {
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $id = $row['id'];
+                $title = $row['title'];
+                $creator_id = $row['creator_id'];
+
+                $sql = <<<'SQL'
+                    SELECT `username` FROM `users`
+                    WHERE `id` = ?;
+                SQL;
+
                 if ($stmt2 = $con->prepare($sql)) {
                     $stmt2->bind_param("i", $creator_id);
                     $stmt2->execute();
-                    $stmt2->store_result();
 
-                    if ($stmt2->num_rows > 0) {
-                        $stmt2->bind_result($username);
-                        $stmt2->fetch();
+                    $result2 = $stmt2->get_result();
+
+                    if ($result2->num_rows > 0) {
+                        $row2 = $result2->fetch_assoc();
+                        $username = $row2['username'];
                     } else {
                         $username = "<Unknown>";
                     }
@@ -51,9 +57,9 @@ function display_pastes()
                     exit("Statement 2 couldn't be prepared");
                 }
             }
-        } else {
-            echo "No public pastes found.";
         }
+
+        $stmt->close();
     } else {
         $con->close();
         exit("Statement couldn't be prepared");

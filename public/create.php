@@ -34,7 +34,7 @@ function create()
         return invalid("Invalid visibility");
     }
 
-    include("db_connection.php");
+    $con = require("db_connection.php");
 
     $sql = <<<'SQL'
         SELECT `id` FROM `pastes`

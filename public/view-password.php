@@ -16,7 +16,7 @@ if ($id <= 0) {
     exit("Invalid id provided");
 }
 
-include("db_connection.php");
+$con = require("db_connection.php");
 
 $sql = <<<'SQL'
     SELECT `haspassword`, `expires`, `expiration_date` FROM `pastes`
@@ -28,9 +28,13 @@ if ($stmt = $con->prepare($sql)) {
     $stmt->execute();
     $stmt->store_result();
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($haspassword, $expires, $expiration_date);
-        $stmt->fetch();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $haspassword = $row['haspassword'];
+        $expires = $row['expires'];
+        $expiration_date = $row['expiration_date'];
 
         if (!$haspassword) {
             $stmt->close();
