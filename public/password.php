@@ -3,8 +3,12 @@
 session_start();
 header("Content-Type: application/json");
 
-function response($title, $content, $author = null, $authorID = null)
-{
+function response(
+    string $title,
+    string $content,
+    ?string $author = null,
+    ?string $authorID = null
+): string | false {
     return json_encode(array(
         "title" => $title,
         "content" => $content,
@@ -13,13 +17,17 @@ function response($title, $content, $author = null, $authorID = null)
     ));
 }
 
-function passwordInvalid($content)
+function passwordInvalid(string $content): string | false
 {
     return response("Failed", $content);
 }
 
-function passwordSuccess($title, $content, $author, $authorID)
-{
+function passwordSuccess(
+    string $title,
+    string $content,
+    string $author,
+    string $authorID
+): string | false {
     return response($title, $content, $author, $authorID);
 }
 

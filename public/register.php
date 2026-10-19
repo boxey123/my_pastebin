@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-function invalid($content)
+function invalid(string $content): string
 {
     return "<p style=\"color: red;\">" . $content . "</p>";
 }
 
-function success($content)
+function success(string $content): string
 {
     return "<p style=\"color: green;\">" . $content . ". Login <a href=\"login.php\">here</a></p>";
 }
 
-function register()
+function register(): string
 {
     // isset
     if (!isset($_POST["UserName"], $_POST["Password"])) {

@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-function invalid($content)
+function invalid(string $content): string
 {
     return "<p style=\"color: red;\">" . $content . "</p>";
 }
 
-function success($content)
+function success(string $content): string
 {
     return "<p style=\"color: green;\">" . $content . ". View on your profile <a href=\"/profile.php\">here</a></p>";
 }
 
-function create()
+function create(): string
 {
     if (!isset($_POST["title"], $_POST["content"], $_POST["visibility"])) {
         return invalid("Missing data");
