@@ -22,7 +22,7 @@
         }
 
         // empty
-        if ( empty( $_POST["title"] ) | empty( $_POST["content"] ) | empty( $_POST["visibility"] ) ) {
+        if ( empty( $_POST["title"] ) || empty( $_POST["content"] ) || empty( $_POST["visibility"] ) ) {
             return invalid( "Missing data" );
         }
 
