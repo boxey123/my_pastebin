@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-function display_pastes()
+function display_pastes(): void
 {
     $con = require("db_connection.php");
 
