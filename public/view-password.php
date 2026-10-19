@@ -26,7 +26,6 @@ SQL;
 if ($stmt = $con->prepare($sql)) {
     $stmt->bind_param("i", $id);
     $stmt->execute();
-    $stmt->store_result();
 
     $result = $stmt->get_result();
 

@@ -13,7 +13,6 @@ function display_pastes()
 
     if ($stmt = $con->prepare($sql)) {
         $stmt->execute();
-        $stmt->store_result();
 
         $result = $stmt->get_result();
 
@@ -57,6 +56,8 @@ function display_pastes()
                     exit("Statement 2 couldn't be prepared");
                 }
             }
+        } else {
+            echo "No public pastes found";
         }
 
         $stmt->close();
@@ -65,7 +66,6 @@ function display_pastes()
         exit("Statement couldn't be prepared");
     }
 
-    $stmt->close();
     $con->close();
 }
 ?>

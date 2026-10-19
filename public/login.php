@@ -54,7 +54,7 @@ function login()
 
         $result = $stmt->get_result();
 
-        if ($result > 0) {
+        if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $id = $row['id'];
             $hash = $row['password'];
