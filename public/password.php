@@ -2,14 +2,16 @@
     session_start();
     header( "Content-Type: application/json" );
 
+    function response( $title , $content, $author = null, $authorID = null ) {
+        return json_encode( array( "title" => $title, "content" => $content, "author" => $author, "author_id" => $authorID ) );
+    }
+
     function invalid( $content ) {
-        return json_encode( array( "title" => "Failed", "content" => $content ) );
-        //echo( $content . ". <a href='register.php'>Return</a>" );
+        return response( "Failed", $content );
     }
 
     function success( $title, $content, $author, $authorID ) {
-        return json_encode( array( "title" => $title, "content" => $content, "author" => $author, "author_id" => $authorID ) );
-        //echo( $content . ". Login <a href='login.php'>here</a>");
+        return response( $title, $content, $author, $authorID );
     }
 
     if ( $_SERVER["REQUEST_METHOD"] !== "POST" ) {
