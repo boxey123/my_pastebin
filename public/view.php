@@ -15,7 +15,7 @@ if ($id <= 0) {
     exit("Invalid id provided");
 }
 
-include("db_connection.php");
+$con = require("db_connection.php");
 
 $sql = <<<'SQL'
     SELECT `creator_id`, `title`, `content`, `expires`, `expiration_date`, `haspassword`, `password`
@@ -26,12 +26,18 @@ $sql = <<<'SQL'
 if ($stmt = $con->prepare($sql)) {
     $stmt->bind_param("i", $id);
     $stmt->execute();
-    $stmt->store_result();
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($creator_id, $title, $content, $expires, $expiration_date, $haspassword, $password);
-        $stmt->fetch();
-        $stmt->close();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $creator_id = $row['creator_id'];
+        $title = $row['title'];
+        $content = $row['content'];
+        $expires = $row['expires'];
+        $expiration_date = $row['expiration_date'];
+        $haspassword = $row['haspassword'];
+        $password = $row['password'];
 
         $sql = <<<'SQL'
             SELECT `username` FROM `users`
@@ -41,11 +47,13 @@ if ($stmt = $con->prepare($sql)) {
         if ($stmt = $con->prepare($sql)) {
             $stmt->bind_param("i", $creator_id);
             $stmt->execute();
-            $stmt->store_result();
 
-            if ($stmt->num_rows > 0) {
-                $stmt->bind_result($username);
-                $stmt->fetch();
+
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $username = $row['username'];
             } else {
                 $username = "<Unknown>";
             }

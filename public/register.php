@@ -40,7 +40,7 @@ function register()
         return invalid("Username contains invalid characters");
     }
 
-    include("db_connection.php");
+    $con = require("db_connection.php");
 
     $sql = <<<'SQL'
         SELECT `id` FROM `users`

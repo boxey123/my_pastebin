@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-include("db_connection.php");
+$con = require("db_connection.php");
 
 $found = false;
-$viewType;
+$viewType = "";
 
 if (isset($_GET["id"])) {
     $sql = <<<'SQL'
@@ -15,13 +15,16 @@ if (isset($_GET["id"])) {
     if ($stmt = $con->prepare($sql)) {
         $stmt->bind_param("i", $_GET["id"]);
         $stmt->execute();
-        $stmt->store_result();
-        $stmt->bind_result($username);
-        $stmt->fetch();
 
-        if ($stmt->num_rows > 0) {
-            $found = true;
-            $viewType = "Public Profile";
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['username'];
+        } else {
+            $stmt->close();
+            $con->close();
+            exit("User not found.");
         }
     } else {
         $con->close();
@@ -70,7 +73,7 @@ $con->close();
         <h3>User's Creations:</h3>
         <div>
             <?php
-            include("db_connection.php");
+            $con = require("db_connection.php");
 
             if ($viewType == "Public Profile") {
                 $sql = <<<'SQL'
@@ -81,8 +84,12 @@ $con->close();
                 if ($stmt = $con->prepare($sql)) {
                     $stmt->bind_param("s", $_GET["id"]);
                     $stmt->execute();
-                    $stmt->store_result();
-                    $stmt->bind_result($id, $title);
+
+                    $result = $stmt->get_result();
+                    $row = $result->fetch_assoc();
+
+                    $id = $row['id'];
+                    $title = $row['title'];
 
                     while ($stmt->fetch()) {
                         echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars($title) . "</a><br>";
@@ -101,8 +108,12 @@ $con->close();
                 if ($stmt = $con->prepare($sql)) {
                     $stmt->bind_param("i", $_SESSION["userID"]);
                     $stmt->execute();
-                    $stmt->store_result();
-                    $stmt->bind_result($id, $title);
+
+                    $result = $stmt->get_result();
+                    $row = $result->fetch_assoc();
+
+                    $id = $row['id'];
+                    $title = $row['title'];
 
                     while ($stmt->fetch()) {
                         echo "<a href=\"/view.php?id=" . $id . "\">" . htmlspecialchars($title) . "</a><br>";
