@@ -1,0 +1,17 @@
+{
+    "name": "ben/my_pastebin",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ben\\MyPastebin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "boxey123",
+            "email": "105134794+boxey123@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
