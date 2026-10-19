@@ -3,7 +3,6 @@ session_start();
 
 $con = require("db_connection.php");
 
-$found = false;
 $viewType = "";
 
 if (isset($_GET["id"])) {
@@ -21,6 +20,7 @@ if (isset($_GET["id"])) {
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $username = $row['username'];
+            $viewType = "Public Profile";
         } else {
             $stmt->close();
             $con->close();
@@ -38,12 +38,7 @@ if (isset($_GET["id"])) {
     }
 
     $username = $_SESSION["username"];
-    $found = true;
     $viewType = "Private Profile";
-}
-
-if (!$found) {
-    exit("User not found.");
 }
 
 $con->close();
@@ -62,7 +57,7 @@ $con->close();
     <div>
         <h1 id="profile-username">User: <?php echo htmlspecialchars($username); ?></h1>
         <?php
-        if ($viewType == "Private Profile") {
+        if ($viewType === "Private Profile") {
             echo "<div id=\"profile-right\"><a href=\"/index.php\">Home</a><a href=\"/logout.php\">Logout</a></div>";
         } else {
             echo "<div id=\"profile-right\"><a href=\"/index.php\">Home</a></div>";
