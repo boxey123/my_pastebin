@@ -26,3 +26,7 @@ jobs:
 
             - name: Run PHPStan
               run: vendor/bin/phpstan analyse
+
+            # TODO: Enable PHPUnit once tests are written
+            # - name: Run PHPUnit
+            #   run: vendor/bin/phpunit --coverage-text --colors=never
