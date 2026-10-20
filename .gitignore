@@ -2,3 +2,4 @@ config.php
 .DS_Store
 error.log
 /vendor/
+.phpunit.cache/
