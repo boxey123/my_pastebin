@@ -3,7 +3,6 @@
     <description>MyPastebin Coding Standards</description>
 
     <file>public</file>
-    <file>src</file>
 
     <arg name="extensions" value="php"/>
     <arg value="sp"/>
