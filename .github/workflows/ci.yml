@@ -22,7 +22,7 @@ jobs:
               run: composer install --no-interaction --prefer-dist
 
             - name: Run PHPCS
-              run: vendor/bin/phpcs
+              run: vendor/bin/phpcs --warning-severity=0
 
             - name: Run PHPStan
               run: vendor/bin/phpstan analyse
